@@ -1,0 +1,179 @@
+/* --- ABOUT SECTION --- */
+
+.about {
+    padding: 120px 10%;
+    background: transparent;
+    /* Particles will show through */
+    position: relative;
+    overflow: hidden;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+}
+
+
+/* --- LEFT SIDE: CONTENT --- */
+
+.about-left {
+    flex: 1.4;
+}
+
+.about-left h2 {
+    font-size: 48px;
+    margin-bottom: 25px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ffffff, #888888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-left p {
+    color: #b0b0b0;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 17px;
+    max-width: 90%;
+}
+
+
+/* STATS - The "Pro" Look */
+
+.about-stats {
+    display: flex;
+    gap: 50px;
+    margin-top: 45px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.about-stats h3 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 5px;
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* Small cyan dot for the stats */
+
+.about-stats h3::after {
+    content: "+";
+    color: #00ffcc;
+    font-size: 20px;
+    margin-left: 2px;
+}
+
+
+/* The Freelance "Available" status */
+
+.about-stats div:last-child h3::after {
+    content: "";
+    /* Remove + for Freelance status */
+}
+
+.about-stats p {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #666;
+    font-weight: 700;
+    margin: 0;
+}
+
+
+/* --- RIGHT SIDE: THE GLASS CARD --- */
+
+.about-right {
+    flex: 1;
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.about-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(0, 255, 204, 0.05), transparent);
+    border-radius: 24px;
+    pointer-events: none;
+}
+
+.about-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(0, 255, 204, 0.3);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.about-card h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.about-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-card li {
+    color: #aaa;
+    margin-bottom: 18px;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.about-card li::before {
+    content: "▹";
+    /* Modern arrow instead of a dot */
+    color: #00ffcc;
+    font-size: 18px;
+}
+
+.about-card li:hover {
+    background: rgba(0, 255, 204, 0.05);
+    border-color: rgba(0, 255, 204, 0.2);
+    color: #fff;
+    transform: translateX(8px);
+}
+
+
+/* --- MOBILE RESPONSIVE --- */
+
+@media (max-width: 968px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+    }
+    .about-left p {
+        max-width: 100%;
+    }
+    .about-stats {
+        justify-content: center;
+    }
+}

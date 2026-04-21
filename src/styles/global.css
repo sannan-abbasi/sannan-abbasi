@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial;
+    overflow-x: hidden;
+    color: white;
+    /* animated gradient background */
+    background: linear-gradient(-45deg, #0f0f0f, #111827, #0b0b0f, #1a1a2e);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+}
+
+
+/* moving gradient animation */
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(130px);
+    opacity: 0.4;
+    z-index: 0;
+    animation: float 10s infinite ease-in-out;
+}
+
+body::before {
+    background: #ff0066;
+    top: -150px;
+    left: -150px;
+}
+
+body::after {
+    background: #3b82f6;
+    bottom: -150px;
+    right: -150px;
+    animation-delay: 5s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(100px, 80px) scale(1.2);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+.noise {
+    position: fixed;
+    inset: 0;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 1;
+}
+
+section,
+nav {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* --- CUSTOM MODERN SCROLLBAR --- */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 10px;
+    border: 2px solid #0a0a0a;
+    /* Creates a gap effect */
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00ffcc;
+    /* Matches your accent color */
+}
+/* --- CUSTOM CURSOR STYLE --- */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: 2px solid #00ffcc; /* Your brand Cyan */
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none; /* VERY IMPORTANT: So you can still click buttons */
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+}
+
+/* Make the cursor hide the default mouse for a cleaner look */
+html, body {
+  cursor: none;
+}
+
+/* Optional: Make it "Pop" when hovering over links or buttons */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor {
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 255, 204, 0.1);
+}
+body {
+  background-image: 
+    linear-gradient(rgba(0, 255, 204, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px; /* The size of the grid squares */
+  background-color: #0a0a0a;
+}
