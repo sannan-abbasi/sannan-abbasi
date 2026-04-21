@@ -7,7 +7,7 @@ function Navbar() {
       <div className="logo-section">
         <a href="#home" className="navbar-logo">
           <div className="logo-icon-wrapper">
-            <img src="/SannanSparkLogo.svg" alt="Sannan Spark" className="logo-symbol" />
+            <img src="SannanSparkLogo.svg" alt="Sannan Spark" className="logo-symbol" />
           </div>
           <span className="logo-text">SANNAN</span>
         </a>

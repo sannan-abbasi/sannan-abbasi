@@ -8,25 +8,25 @@ function Project() {
     {
       title: "Amazon Analyzer",
       desc: "A Chrome extension that analyzes Amazon products, pricing trends, and competition to help sellers make data-driven decisions.",
-      img: "/amazon.png",
+      img: "amazon.png",
       tags: ["Chrome Extension", "Data Mining"]
     },
     {
       title: "LinkedIn Profile Extractor + AI Messaging",
       desc: "Automates lead generation, reducing manual data entry by 90% using AI-driven messaging.",
-      img: "/linkedin.png",
+      img: "linkedin.png",
       tags: ["AI", "Automation", "React"]
     },
     {
       title: "YouTube Video Manager",
       desc: "A tool to save, organize, and delete YouTube videos efficiently with a clean UI.",
-      img: "/youtube.png",
+      img: "youtube.png",
       tags: ["UI/UX", "Management"]
     },
     {
       title: "Trading Automation System",
       desc: "Executes strategy-based trades with a 2-second settlement check to ensure accurate profit/loss monitoring.",
-      img: "/trading.png",
+      img: "trading.png",
       tags: ["Trading API", "Automation"]
     }
   ]

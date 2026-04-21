@@ -1,11 +1,10 @@
 import { defineConfig } from 'vite'
-import react, { reactCompilerPreset } from '@vitejs/plugin-react'
-import babel from '@rolldown/plugin-babel'
+import react from '@vitejs/plugin-react'
+// If you are using the babel plugin from your screenshot:
+import babel from '@rollway/plugin-babel' 
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    babel({ presets: [reactCompilerPreset()] })
-  ],
+  plugins: [react()],
+  base: "/", // Try this if "/sannan-abbasi/" gives a white screen
 })
