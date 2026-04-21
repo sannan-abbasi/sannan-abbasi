@@ -6,5 +6,5 @@ import babel from '@rollway/plugin-babel'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/", // Try this if "/sannan-abbasi/" gives a white screen
+  base: "/sannan-abbasi", // Try this if "/sannan-abbasi/" gives a white screen
 })

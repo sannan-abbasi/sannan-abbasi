@@ -3,12 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://sannan-abbasi.github.io/sannan-abbasi/",
   "scripts": {
   "dev": "vite",
   "build": "vite build",
   "preview": "vite preview",
   "predeploy": "npm run build",
-  "deploy": "gh-pages -r https://github.com/sannan-abbasi/sannan-abbasi.git -d dist"
+  "deploy": "gh-pages -d dist"
 },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
