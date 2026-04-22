@@ -1,31 +1,30 @@
 /* --- CONTACT SECTION --- */
-
 .contact {
     padding: 120px 10%;
     background: transparent;
     position: relative;
     z-index: 1;
+    /* Optimization: Tells the browser this section won't affect layout outside it */
+    contain: layout;
 }
 
 .contact h2 {
-    font-size: 48px;
+    font-size: clamp(32px, 5vw, 48px);
     font-weight: 800;
     margin-bottom: 10px;
-    background: linear-gradient(90deg, #ffffff, #888888);
+    background: linear-gradient(90deg, #ffffff, #00ffcc); /* Changed to your brand Cyan */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .contact p {
-    color: #888;
+    color: rgba(255, 255, 255, 0.5);
     font-size: 18px;
     margin-bottom: 60px;
     letter-spacing: 0.5px;
 }
 
-
 /* --- MAIN WRAPPER --- */
-
 .contact-wrapper {
     display: flex;
     justify-content: center;
@@ -33,9 +32,7 @@
     align-items: stretch;
 }
 
-
 /* --- CONTACT CARD (FORM) --- */
-
 .contact-card {
     flex: 1.2;
     max-width: 550px;
@@ -43,13 +40,16 @@
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 24px;
     padding: 55px;
-    backdrop-filter: blur(15px);
+    /* Performance Fix: Using lower blur or removing on mobile helps with typing lag */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     text-align: left;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s cubic-bezier(0.2, 1, 0.2, 1), border-color 0.3s ease;
+    will-change: transform;
 }
 
 .contact-card:hover {
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 255, 204, 0.2);
 }
 
 .contact-card h3 {
@@ -59,9 +59,7 @@
     color: #fff;
 }
 
-
 /* INPUTS & TEXTAREA */
-
 .contact-card input,
 .contact-card textarea {
     width: 100%;
@@ -73,14 +71,16 @@
     color: white;
     outline: none;
     font-size: 15px;
-    transition: all 0.3s ease;
+    /* Transition only specific properties to avoid lag while typing */
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
 }
 
 .contact-card input:focus,
 .contact-card textarea:focus {
-    border-color: #3b82f6;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+    border-color: #00ffcc; /* Cyan focus */
+    background: rgba(0, 255, 204, 0.03);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.1);
 }
 
 .contact-card textarea {
@@ -88,9 +88,7 @@
     resize: none;
 }
 
-
 /* --- INFO PANEL (RIGHT) --- */
-
 .contact-info {
     flex: 0.8;
     max-width: 380px;
@@ -104,12 +102,6 @@
     justify-content: center;
 }
 
-.contact-info h3 {
-    font-size: 22px;
-    margin-bottom: 30px;
-    color: #fff;
-}
-
 .info-item {
     display: flex;
     align-items: center;
@@ -118,41 +110,34 @@
     padding: 15px;
     background: rgba(255, 255, 255, 0.02);
     border-radius: 12px;
-    transition: 0.3s;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .info-item:hover {
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateX(5px);
+    background: rgba(0, 255, 204, 0.05);
+    transform: translate3d(5px, 0, 0); /* GPU acceleration */
 }
-
-.info-item span {
-    font-size: 15px;
-    color: #bbb;
-    font-weight: 500;
-}
-
 
 /* --- BUTTONS --- */
-
 .btn-group {
     display: flex;
     gap: 15px;
     margin-top: 10px;
 }
 
-.email-btn,
-.whatsapp-btn {
+.email-btn, .whatsapp-btn {
     flex: 1;
     padding: 16px;
     border-radius: 12px;
     border: none;
     cursor: pointer;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.2), 
+                background 0.3s ease, 
+                box-shadow 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,15 +145,15 @@
 }
 
 .email-btn {
-    background: #fff;
+    background: #ffffff;
     color: #000;
 }
 
 .email-btn:hover {
-    background: #3b82f6;
-    color: #fff;
+    background: #00ffcc; /* Matches theme on hover */
+    color: #000;
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 255, 204, 0.2);
 }
 
 .whatsapp-btn {
@@ -184,14 +169,12 @@
     box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
 }
 
-
 /* --- TOAST NOTIFICATION --- */
-
 .toast {
     position: fixed;
     bottom: 40px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
     background: #fff;
     color: #000;
     padding: 14px 28px;
@@ -200,31 +183,23 @@
     font-size: 14px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     z-index: 10000;
-    animation: slideUp 0.4s ease;
+    animation: slideUp 0.4s cubic-bezier(0.2, 1, 0.2, 1);
 }
 
 @keyframes slideUp {
     from {
         opacity: 0;
-        transform: translateX(-50%) translateY(30px);
+        transform: translate3d(-50%, 30px, 0);
     }
     to {
         opacity: 1;
-        transform: translateX(-50%) translateY(0);
+        transform: translate3d(-50%, 0, 0);
     }
 }
 
-
 /* --- RESPONSIVE --- */
-
 @media (max-width: 1024px) {
-    .contact-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-    .contact-card,
-    .contact-info {
-        max-width: 100%;
-        width: 100%;
-    }
+    .contact-wrapper { flex-direction: column; }
+    .contact-card, .contact-info { max-width: 100%; width: 100%; }
+    .contact-card { padding: 30px; }
 }

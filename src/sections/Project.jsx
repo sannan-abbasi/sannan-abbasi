@@ -3,6 +3,7 @@ import "../styles/project.css"
 
 function Project() {
   const [selectedImg, setSelectedImg] = useState(null)
+  const base = import.meta.env.BASE_URL;
 
   const project = [
     {
@@ -13,7 +14,7 @@ function Project() {
     },
     {
       title: "LinkedIn Profile Extractor + AI Messaging",
-      desc: "Automates lead generation, reducing manual data entry by 90% using AI-driven messaging.",
+      desc: "Extract LinkedIn profiles and generate personalized AI-powered outreach messages for networking and clients.",
       img: "linkedin.png",
       tags: ["AI", "Automation", "React"]
     },
@@ -25,11 +26,14 @@ function Project() {
     },
     {
       title: "Trading Automation System",
-      desc: "Executes strategy-based trades with a 2-second settlement check to ensure accurate profit/loss monitoring.",
+      desc: "An automated trading assistant where users set amount and time, and the system executes strategy-based trading logic.",
       img: "trading.png",
       tags: ["Trading API", "Automation"]
     }
   ]
+
+  // Helper to format path correctly
+  const getPath = (imgName) => `${base}/${imgName}`.replace('//', '/');
 
   return (
     <section className="projects" id="project">
@@ -38,9 +42,13 @@ function Project() {
       <div className="project-grid">
         {project.map((p, i) => (
           <div className="project-card" key={i}>
-            <div className="img-container" onClick={() => setSelectedImg(p.img)}>
-               <img src={p.img} alt={p.title} />
-               <div className="img-overlay">Click to Enlarge</div>
+            <div className="img-container" onClick={() => setSelectedImg(getPath(p.img))}>
+              <img
+                src={getPath(p.img)}
+                alt={p.title}
+                className="project-img"
+              />
+              <div className="img-overlay">Click to Enlarge</div>
             </div>
             
             <div className="project-info">
@@ -54,11 +62,13 @@ function Project() {
         ))}
       </div>
 
-      {/* Lightbox Modal */}
+      {/* LIGHTBOX */}
       {selectedImg && (
         <div className="lightbox" onClick={() => setSelectedImg(null)}>
-          <span className="close-btn">&times;</span>
-          <img src={selectedImg} alt="preview" onClick={(e) => e.stopPropagation()} />
+          <div className="lightbox-content">
+            <img src={selectedImg} alt="Enlarged view" />
+            <span className="close-btn">&times;</span>
+          </div>
         </div>
       )}
     </section>

@@ -6,8 +6,8 @@ import About from './sections/About';
 import Project from './sections/Project';
 import Contact from './sections/Contact';
 import FAQ from './components/FAQ';
-import ParticleBackground from './components/ParticleBackground';
 
+import ParticleBackground from './components/ParticleBackground';
 function App() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 

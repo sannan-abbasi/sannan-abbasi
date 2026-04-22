@@ -1,67 +1,83 @@
 .faq-container {
-  max-width: 800px;
-  margin: 80px auto;
-  padding: 0 20px;
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 0 20px;
+    /* Keeps content centered and prevents shifting */
+    contain: content; 
 }
 
 .faq-title {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #fff;
-  margin-bottom: 40px;
-  letter-spacing: 2px;
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
 }
 
 .faq-item {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  margin-bottom: 15px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    /* Be specific: only transition the border and background */
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    /* Hardware acceleration */
+    transform: translateZ(0); 
 }
 
 .faq-item:hover {
-  border-color: #00ffcc; /* Your Cyan Brand Color */
-  background: rgba(0, 255, 204, 0.02);
+    border-color: #00ffcc;
+    background: rgba(0, 255, 204, 0.02);
 }
 
 .faq-question {
-  padding: 20px 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .faq-question h3 {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #e0e0e0;
-  margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #e0e0e0;
+    margin: 0;
 }
 
 .faq-icon {
-  color: #00ffcc;
-  font-size: 1.5rem;
-  font-weight: bold;
+    color: #00ffcc;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
 }
 
 .faq-answer {
-  max-height: 0;
-  padding: 0 25px;
-  transition: all 0.4s cubic-bezier(0, 1, 0, 1);
-  color: #b0b0b0;
-  line-height: 1.6;
+    /* Using grid for a smoother, modern animation than max-height */
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+    padding: 0 25px;
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+.faq-answer p {
+    overflow: hidden;
+    margin: 0;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 500px;
-  padding-bottom: 25px;
-  transition: all 0.4s cubic-bezier(1, 0, 1, 0);
+    grid-template-rows: 1fr;
+    padding-bottom: 25px;
 }
 
 .faq-item.active {
-  border-color: #00ffcc;
-  box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
+    border-color: #00ffcc;
+    box-shadow: 0 10px 30px rgba(0, 255, 204, 0.1);
 }

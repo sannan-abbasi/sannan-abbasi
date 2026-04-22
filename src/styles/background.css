@@ -1,0 +1,49 @@
+.pro-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(125deg, #0d1117, #161b22, #0d1117);
+  background-size: 400% 400%;
+  animation: moveGradient 15s ease infinite;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Moving colored glows */
+.pro-bg::before, .pro-bg::after {
+  content: "";
+  position: absolute;
+  width: 50vmax;
+  height: 50vmax;
+  filter: blur(100px);
+  border-radius: 50%;
+  opacity: 0.15; /* Subtle glow */
+  pointer-events: none;
+}
+
+.pro-bg::before {
+  background: #38bdf8; /* Your Teal color */
+  top: -10%;
+  left: -10%;
+  animation: float 20s infinite alternate;
+}
+
+.pro-bg::after {
+  background: #7c3aed; /* Deep Purple for contrast */
+  bottom: -10%;
+  right: -10%;
+  animation: float 25s infinite alternate-reverse;
+}
+
+@keyframes moveGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  from { transform: translate(0, 0); }
+  to { transform: translate(15%, 15%); }
+}

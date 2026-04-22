@@ -1,18 +1,17 @@
-import "../styles/hero.css"
-import profile from "../assets/profile.png"
+import "../styles/hero.css";
+import profile from "../assets/profile.png";
 
 function Hero() {
   return (
-    <section className="hero" id="hero">
+    <section className="hero" id="home">
       <div className="hero-inner">
-
+        
         <div className="hero-content">
-<h1>Sannan</h1>
           <p className="hero-tag">AVAILABLE FOR FREELANCE</p>
-
+          <h1>Sannan</h1>
+          
           <h2>
-            Frontend Developer building fast web apps  
-  and browser extensions that deliver real value.
+            Frontend Developer building fast web apps and browser extensions that deliver real value.
           </h2>
 
           <p className="hero-desc">
@@ -20,28 +19,27 @@ function Hero() {
             scalable web apps and browser extensions.
           </p>
 
-         <div className="hero-buttons">
-
-  <a href="#project" className="primary">
-    View Projects
-  </a>
-
-  <a href="#contact" className="secondary">
-    Contact Me
-  </a>
-
-</div>
-
+          <div className="hero-buttons">
+            <a href="#project" className="primary">
+              View Projects
+            </a>
+            <a href="#contact" className="secondary">
+              Contact Me
+            </a>
+          </div>
         </div>
 
         <div className="hero-image">
-   <img src={profile} alt="SannanAbbasi" />
-  
-</div>
+          <div className="image-frame">
+            {/* This div below handles the spark/glow effect */}
+            <div className="glow-ring"></div>
+            <img src={profile} alt="Sannan" />
+          </div>
+        </div>
 
       </div>
     </section>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

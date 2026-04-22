@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import "../styles/FAQ.css"
+import "../styles/FAQ.css";
 
 const faqData = [
   {
@@ -39,7 +39,8 @@ const FAQ = () => {
           >
             <div className="faq-question">
               <h3>{item.question}</h3>
-              <span className="faq-icon">{activeIndex === index ? '−' : '+'}</span>
+              {/* Changed logic to a single icon that rotates via CSS */}
+              <span className="faq-icon">+</span>
             </div>
             <div className="faq-answer">
               <p>{item.answer}</p>
